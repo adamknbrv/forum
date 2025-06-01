@@ -1,8 +1,8 @@
 package ws
 
 import (
-	"github.com/Defenestrationq/forum-api/internal/entity"
-	"github.com/Defenestrationq/forum-api/internal/usecase"
+	"github.com/adamknbrv/forum/internal/entity"
+	"github.com/adamknbrv/forum/internal/usecase"
 	"github.com/gorilla/websocket"
 	"net/http"
 	"sync"

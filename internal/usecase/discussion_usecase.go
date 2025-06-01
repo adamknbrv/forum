@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"github.com/Defenestrationq/forum-api/internal/entity"
-	"github.com/Defenestrationq/forum-api/internal/repository"
+	"github.com/adamknbrv/forum/internal/entity"
+	"github.com/adamknbrv/forum/internal/repository"
 )
 
 type DisUseCase interface {

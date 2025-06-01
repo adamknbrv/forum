@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Defenestrationq/forum-api/internal/app"
-	"github.com/Defenestrationq/forum-api/pkg/log"
+	"github.com/adamknbrv/forum/internal/app"
+	"github.com/adamknbrv/forum/pkg/log"
 )
 
 func main() {

@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"github.com/Defenestrationq/forum-api/internal/entity"
-	"github.com/Defenestrationq/forum-api/pkg/log"
+	"github.com/adamknbrv/forum/internal/entity"
+	"github.com/adamknbrv/forum/pkg/log"
 	"go.uber.org/zap"
 	"time"
 )

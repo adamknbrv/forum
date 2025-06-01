@@ -1,9 +1,9 @@
 package http
 
 import (
-	_ "github.com/Defenestrationq/forum-api/docs"
-	"github.com/Defenestrationq/forum-api/internal/transport/http/handlers"
-	"github.com/Defenestrationq/forum-api/pkg/ws"
+	_ "github.com/adamknbrv/forum/docs"
+	"github.com/adamknbrv/forum/internal/transport/http/handlers"
+	"github.com/adamknbrv/forum/pkg/ws"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"

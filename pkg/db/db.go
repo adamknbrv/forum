@@ -2,7 +2,7 @@ package db
 
 import (
 	"database/sql"
-	"github.com/Defenestrationq/forum-api/pkg/log"
+	"github.com/adamknbrv/forum/pkg/log"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/mattn/go-sqlite3"
 	"go.uber.org/zap"

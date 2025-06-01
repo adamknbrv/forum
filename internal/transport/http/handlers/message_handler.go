@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/Defenestrationq/forum-api/internal/entity"
+	"github.com/adamknbrv/forum/internal/entity"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"

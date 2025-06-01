@@ -2,7 +2,7 @@ package ws
 
 import (
 	"encoding/json"
-	"github.com/Defenestrationq/forum-api/internal/entity"
+	"github.com/adamknbrv/forum/internal/entity"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
 	"net/http"

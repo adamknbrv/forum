@@ -1,4 +1,4 @@
-module github.com/Defenestrationq/forum-api
+module github.com/adamknbrv/forum
 
 go 1.23.6
 

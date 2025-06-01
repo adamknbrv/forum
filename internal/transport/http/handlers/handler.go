@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"github.com/Defenestrationq/forum-api/internal/usecase"
+	"github.com/adamknbrv/forum/internal/usecase"
 	"github.com/gin-gonic/gin"
 )
 

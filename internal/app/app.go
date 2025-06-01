@@ -1,13 +1,13 @@
 package app
 
 import (
-	"github.com/Defenestrationq/forum-api/internal/repository"
-	"github.com/Defenestrationq/forum-api/internal/transport/http"
-	"github.com/Defenestrationq/forum-api/internal/transport/http/handlers"
-	"github.com/Defenestrationq/forum-api/internal/usecase"
-	database "github.com/Defenestrationq/forum-api/pkg/db"
-	"github.com/Defenestrationq/forum-api/pkg/log"
-	"github.com/Defenestrationq/forum-api/pkg/ws"
+	"github.com/adamknbrv/forum/internal/repository"
+	"github.com/adamknbrv/forum/internal/transport/http"
+	"github.com/adamknbrv/forum/internal/transport/http/handlers"
+	"github.com/adamknbrv/forum/internal/usecase"
+	database "github.com/adamknbrv/forum/pkg/db"
+	"github.com/adamknbrv/forum/pkg/log"
+	"github.com/adamknbrv/forum/pkg/ws"
 	"go.uber.org/zap"
 )
 

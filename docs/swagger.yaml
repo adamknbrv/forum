@@ -1,0 +1,352 @@
+definitions:
+  entity.Discussion:
+    properties:
+      create_at:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  entity.Message:
+    properties:
+      content:
+        type: string
+      create_at:
+        type: string
+      discussion_id:
+        type: integer
+      id:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+host: localhost:8082
+info:
+  contact: {}
+  description: API для форума с обсуждениями и сообщениями
+  title: Forum API
+  version: "1.0"
+paths:
+  /discussions:
+    get:
+      consumes:
+      - application/json
+      description: Возвращает список всех обсуждений на форуме
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Список обсуждений
+          schema:
+            items:
+              $ref: '#/definitions/entity.Discussion'
+            type: array
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Получить все обсуждения
+      tags:
+      - Обсуждения
+    post:
+      consumes:
+      - application/json
+      description: Создает новое обсуждение на форуме
+      parameters:
+      - description: Данные обсуждения
+        in: body
+        name: discussion
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Discussion'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Обсуждение создано
+          schema:
+            type: object
+        "400":
+          description: Невалидные данные
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Создать новое обсуждение
+      tags:
+      - Обсуждения
+  /discussions/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Удаляет обсуждение по его ID
+      parameters:
+      - description: ID обсуждения
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Обсуждение удалено
+          schema:
+            type: object
+        "400":
+          description: Невалидный параметр ID
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Удалить обсуждение
+      tags:
+      - Обсуждения
+    get:
+      consumes:
+      - application/json
+      description: Возвращает обсуждение
+      parameters:
+      - description: ID обсуждения
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Список обсуждений пользователя
+          schema:
+            items:
+              $ref: '#/definitions/entity.Discussion'
+            type: array
+        "400":
+          description: Невалидный параметр ID
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Получить обсуждение по ID
+      tags:
+      - Обсуждения
+  /discussions/update/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Обновляет существующее обсуждение
+      parameters:
+      - description: Обновленные данные обсуждения
+        in: body
+        name: discussion
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Discussion'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Обсуждение изменено
+          schema:
+            type: object
+        "400":
+          description: Невалидные данные
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Обновить обсуждение
+      tags:
+      - Обсуждения
+  /discussions/user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Возвращает все обсуждения, созданные указанным пользователем
+      parameters:
+      - description: ID пользователя
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Список обсуждений пользователя
+          schema:
+            items:
+              $ref: '#/definitions/entity.Discussion'
+            type: array
+        "400":
+          description: Невалидный параметр ID
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Получить обсуждения по ID пользователя
+      tags:
+      - Обсуждения
+  /messages:
+    post:
+      consumes:
+      - application/json
+      description: Создает новое сообщение в обсуждении
+      parameters:
+      - description: Данные сообщения
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Message'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Сообщение создано
+          schema:
+            type: object
+        "400":
+          description: Невалидные параметры
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Создать новое сообщение
+      tags:
+      - Сообщения
+    put:
+      consumes:
+      - application/json
+      description: Обновляет существующее сообщение
+      parameters:
+      - description: Обновленные данные сообщения
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Message'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Сообщение изменено
+          schema:
+            type: object
+        "400":
+          description: Невалидные параметры
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Обновить сообщение
+      tags:
+      - Сообщения
+  /messages/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Удаляет сообщение по его ID
+      parameters:
+      - description: ID сообщения
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Сообщение удалено
+          schema:
+            type: object
+        "400":
+          description: Невалидный параметр ID
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Удалить сообщение
+      tags:
+      - Сообщения
+    get:
+      consumes:
+      - application/json
+      description: Возвращает все сообщения для указанного обсуждения
+      parameters:
+      - description: ID обсуждения
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Успешный запрос
+          schema:
+            items:
+              $ref: '#/definitions/entity.Message'
+            type: array
+        "400":
+          description: Невалидный параметр ID
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Получить все сообщения по ID обсуждения
+      tags:
+      - Сообщения
+  /messages/user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Возвращает все сообщения, созданные указанным пользователем
+      parameters:
+      - description: ID пользователя
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Успешный запрос
+          schema:
+            items:
+              $ref: '#/definitions/entity.Message'
+            type: array
+        "400":
+          description: Невалидный параметр ID
+          schema:
+            type: object
+        "500":
+          description: Ошибка сервера
+          schema:
+            type: object
+      summary: Получить сообщения по ID пользователя
+      tags:
+      - Сообщения
+swagger: "2.0"
